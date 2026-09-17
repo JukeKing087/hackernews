@@ -1,0 +1,34 @@
+name: HN New Posts — Event-Driven Report
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'   # Every 5 min (GitHub's minimum)
+  workflow_dispatch:
+
+jobs:
+  check-and-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check for new HN posts & generate report
+        id: report
+        run: node scripts/hn-report.js
+
+      - name: Commit if new posts found
+        if: steps.report.outputs.new_posts == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add reports/ .hn-state
+          git commit -m "chore: HN report — ${{ steps.report.outputs.new_count }} new posts"
+          git push
