@@ -1,0 +1,35 @@
+name: HN Manual Report
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'HN page URL (e.g. https://news.ycombinator.com/news)'
+        required: true
+        default: 'https://news.ycombinator.com/news'
+
+jobs:
+  manual-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate report for URL
+        run: node scripts/hn-manual.js "${{ github.event.inputs.url }}"
+
+      - name: Commit report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add reports/
+          git diff --staged --quiet || git commit -m "chore: manual HN report — ${{ github.event.inputs.url }}"
+          git push
