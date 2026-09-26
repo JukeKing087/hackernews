@@ -1,0 +1,17 @@
+# OpenAI: Astra Model Is Nerfed
+
+| Field | Value |
+|---|---|
+| **Score** | 3 |
+| **Author** | [nitinreddy88](https://news.ycombinator.com/user?id=nitinreddy88) |
+| **Comments** | [1](https://news.ycombinator.com/item?id=49856405) |
+| **Posted** | Sat, 26 Sep 2026 13:34:16 GMT |
+
+## Link
+https://www.reddit.com/r/codex/comments/1wqjxyy/i_thought_the_model_nerf_posts_were_bullshit/
+
+## Article Preview
+Blocked whoa there, pardner! Your request has been blocked due to a network policy. Try logging in or creating an account here to get back to browsing. If you're running a script or application, please register or sign in with your developer credentials here . Additionally make sure your User-Agent is not empty and is something unique and descriptive and try again. if you're supplying an alternate User-Agent string, try changing back to default as that can sometimes result in a block. You can read Reddit's Terms of Service here . If you think that we've incorrectly blocked you or you would like to discuss easier ways to get the data you want, please file a ticket here . When contacting us, please include your Reddit account along with the following code: 01a0ddfc-0da5-7d71-849d-1247e03a50bb
+
+---
+_Auto-generated · Sat, 26 Sep 2026 13:51:18 GMT_
